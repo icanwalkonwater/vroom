@@ -8,7 +8,13 @@ opt-level = 1
 panic = "abort"
 
 [profile.release]
+opt-level = "s"
+codegen-units = 1
+lto = false
 panic = "abort"
 
 [dependencies]
-avr-device = { version = "0.3", features = ["atmega1284p", "rt", "avr-device-macros"] }
+avr-device = { version = "0.3", features = ["atmega1284p"] }
+atmega-hal = { git = "https://github.com/icanwalkonwater/avr-hal.git", features = ["rt", "atmega1284p"] }
+avr-hal-generic = { git = "https://github.com/icanwalkonwater/avr-hal.git" }
+ufmt = "0.2"
