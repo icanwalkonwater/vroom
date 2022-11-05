@@ -25,11 +25,17 @@ unsafe fn main() -> ! {
     arduino_hal::delay_ms(100);
     led.set_low();
 
+    motor_enable.set_low();
+    motor_dir.set_low();
+    arduino_hal::delay_ms(1);
+
     for _ in 0..200*16 {
         motor_step.set_high();
-        arduino_hal::delay_us(MOTOR_DELAY_STEP_MIN_US + 1);
+        // arduino_hal::delay_us(MOTOR_DELAY_STEP_MIN_US + 1);
+        arduino_hal::delay_ms(1);
         motor_step.set_low();
-        arduino_hal::delay_us(MOTOR_DELAY_STEP_MIN_US + 1);
+        // arduino_hal::delay_us(MOTOR_DELAY_STEP_MIN_US + 1);
+        arduino_hal::delay_ms(1);
     }
 
     led.set_high();
