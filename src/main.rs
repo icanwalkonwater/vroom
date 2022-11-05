@@ -32,10 +32,10 @@ unsafe fn main() -> ! {
     for _ in 0..200*16 {
         motor_step.set_high();
         // arduino_hal::delay_us(MOTOR_DELAY_STEP_MIN_US + 1);
-        arduino_hal::delay_ms(1);
+        arduino_hal::delay_us(20);
         motor_step.set_low();
         // arduino_hal::delay_us(MOTOR_DELAY_STEP_MIN_US + 1);
-        arduino_hal::delay_ms(1);
+        arduino_hal::delay_us(20);
     }
 
     led.set_high();
