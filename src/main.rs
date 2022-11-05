@@ -13,15 +13,37 @@ unsafe fn main() -> ! {
     let mut led = pins.ext_a4.into_output();
     let mut serial = arduino_hal::default_serial!(dp, pins, 57_600);
 
-    loop {
-        led.set_high();
+    let mut motor_enable = pins.xy_enable.into_output();
+    let mut motor_dir = pins.x_dir.into_output();
+    let mut motor_step = pins.x_step.into_output();
 
-        serial.write_str("hellOwOrld (◡ ω ◡)\n").void_unwrap();
-        serial.flush();
+    const MOTOR_DELAY_DIR_MIN_NS: u32 = 200;
+    const MOTOR_DELAY_STEP_MIN_US: u32 = 1;
+    const MOTOR_MAX_STEPPING_RATE_HZ: u32 = 500000;
 
-        led.set_low();
-        arduino_hal::delay_ms(500);
+    led.set_high();
+    arduino_hal::delay_ms(100);
+    led.set_low();
+
+    for _ in 0..200*16 {
+        motor_step.set_high();
+        arduino_hal::delay_us(MOTOR_DELAY_STEP_MIN_US + 1);
+        motor_step.set_low();
+        arduino_hal::delay_us(MOTOR_DELAY_STEP_MIN_US + 1);
     }
+
+    led.set_high();
+    loop {}
+
+    // loop {
+    //     led.set_high();
+    //
+    //     serial.write_str("hellOwOrld (◡ ω ◡)\n").void_unwrap();
+    //     serial.flush();
+    //
+    //     led.set_low();
+    //     arduino_hal::delay_ms(500);
+    // }
 }
 
 #[panic_handler]
