@@ -5,7 +5,7 @@ version = 3
 [[package]]
 name = "arduino-hal"
 version = "0.1.0"
-source = "git+https://github.com/icanwalkonwater/avr-hal.git#c4423563e1a40faacb9f6f93ee699471bfe46540"
+source = "git+https://github.com/icanwalkonwater/avr-hal.git#0c14d1bc5da50071086f3fc0ba589f093f6598dd"
 dependencies = [
  "atmega-hal",
  "avr-device",
@@ -19,7 +19,7 @@ dependencies = [
 [[package]]
 name = "atmega-hal"
 version = "0.1.0"
-source = "git+https://github.com/icanwalkonwater/avr-hal.git#c4423563e1a40faacb9f6f93ee699471bfe46540"
+source = "git+https://github.com/icanwalkonwater/avr-hal.git#0c14d1bc5da50071086f3fc0ba589f093f6598dd"
 dependencies = [
  "avr-device",
  "avr-hal-generic",
@@ -27,22 +27,21 @@ dependencies = [
 
 [[package]]
 name = "avr-device"
-version = "0.3.4"
+version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "edb5cf74147f0a7ef4b7b2b5cdd6bc04e749d050cf48ed2a40048db290165db4"
+checksum = "5ed053e039e53fc32535af3db89e285f83a2a984854ca904ded202d588f7f0e2"
 dependencies = [
  "avr-device-macros",
  "bare-metal",
  "cfg-if 0.1.10",
- "rustversion",
  "vcell",
 ]
 
 [[package]]
 name = "avr-device-macros"
-version = "0.3.4"
+version = "0.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "474dda7ee758065593ae9fd53c9f95a38c1f7d44fac02a4d354838a6c40070d8"
+checksum = "dae1e4e9408de79dace22e251b27b65fa1525df0b067e6b9c604924693f7fd21"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -52,7 +51,7 @@ dependencies = [
 [[package]]
 name = "avr-hal-generic"
 version = "0.1.0"
-source = "git+https://github.com/icanwalkonwater/avr-hal.git#c4423563e1a40faacb9f6f93ee699471bfe46540"
+source = "git+https://github.com/icanwalkonwater/avr-hal.git#0c14d1bc5da50071086f3fc0ba589f093f6598dd"
 dependencies = [
  "avr-device",
  "cfg-if 0.1.10",
@@ -66,12 +65,9 @@ dependencies = [
 
 [[package]]
 name = "bare-metal"
-version = "0.2.5"
+version = "1.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "5deb64efa5bd81e31fcd1938615a6d98c82eafcbcd787162b6f63b91d6bac5b3"
-dependencies = [
- "rustc_version",
-]
+checksum = "f8fe8f5a8a398345e52358e18ff07cc17a568fbca5c6f73873d3a62056309603"
 
 [[package]]
 name = "cfg-if"
@@ -124,9 +120,9 @@ checksum = "dbf0c48bc1d91375ae5c3cd81e3722dff1abcf81a30960240640d223f59fe0e5"
 
 [[package]]
 name = "proc-macro2"
-version = "1.0.43"
+version = "1.0.47"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0a2ca2c61bc9f3d74d2886294ab7b9853abd9c1ad903a3ac7815c58989bb7bab"
+checksum = "5ea3d908b0e36316caf9e9e2c4625cdde190a7e6f440d794667ed17a1855e725"
 dependencies = [
  "unicode-ident",
 ]
@@ -141,40 +137,16 @@ dependencies = [
 ]
 
 [[package]]
-name = "rustc_version"
-version = "0.2.3"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "138e3e0acb6c9fb258b19b67cb8abd63c00679d2851805ea151465464fe9030a"
-dependencies = [
- "semver",
-]
-
-[[package]]
 name = "rustversion"
 version = "1.0.9"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "97477e48b4cf8603ad5f7aaf897467cf42ab4218a38ef76fb14c2d6773a6d6a8"
 
 [[package]]
-name = "semver"
-version = "0.9.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1d7eb9ef2c18661902cc47e535f9bc51b78acd254da71d375c2f6720d9a40403"
-dependencies = [
- "semver-parser",
-]
-
-[[package]]
-name = "semver-parser"
-version = "0.7.0"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "388a1df253eca08550bef6c72392cfe7c30914bf41df5269b68cbd6ff8f570a3"
-
-[[package]]
 name = "syn"
-version = "1.0.99"
+version = "1.0.103"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "58dbef6ec655055e20b86b15a8cc6d439cca19b667537ac6a1369572d151ab13"
+checksum = "a864042229133ada95abf3b54fdc62ef5ccabe9515b64717bcb9a1919e59445d"
 dependencies = [
  "proc-macro2",
  "quote",
@@ -233,9 +205,9 @@ checksum = "e87a2ed6b42ec5e28cc3b94c09982969e9227600b2e3dcbc1db927a84c06bd69"
 
 [[package]]
 name = "unicode-ident"
-version = "1.0.3"
+version = "1.0.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "c4f5b37a154999a8f3f98cc23a628d850e154479cd94decf3414696e12e31aaf"
+checksum = "6ceab39d59e4c9499d4e5a8ee0e2735b891bb7308ac83dfb4e80cad195c9f6f3"
 
 [[package]]
 name = "vcell"
